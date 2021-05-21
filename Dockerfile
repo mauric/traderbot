@@ -1,8 +1,7 @@
 #Dockerfile
-FROM python:3.8
+FROM continuumio/anaconda3
 
-ADD testingBinance.py
-
-RUN pip install requests pandas numpy
+WORKDIR .
+COPY . . 
 
 CMD ["python3", "./testingBinance.py"]

@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sendMessages as sm
 
-
 #api_key = 'zEWAdS749O3UoQCoo2EukdDSRuzwAMqbakQv7vHWh7ejoTswPF0hk1O1DaoRsaOk'
 #api_secret = 'xicyx7XFyc2RuaVppxFBquqY0nT6UbZykIJik9LRZNvYsCSl8GSokud0BMx2Fb2F'
 #client = Client(api_key, api_secret)
@@ -171,45 +170,9 @@ for coin in futures_coin_list:
         break
 
 # print(getTickerPrice())
+
 print(alert_list)
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-# print(getFuturesTickersDaychange().symbol)
-# print(getFuturesTickersDaychange().symbol.to_numpy())
 
 sm.telegram_bot_sendtext(str(alert_list))
 print(getTickerPrice())
-
-
-# ema-crossoverstrategy
-#self.signals['signal'] = np.where(fast_avg > slow_avg, 1.0, 0.0)
-#self.signals['positions'] = self.signals['signal'].diff()
-
-# para graficar
-
-# if list(data['action'])[-1] == 1:
-#     action = 1
-# elif list(data['action'])[-1] == -1:
-#     action = -1
-# else:
-#     action = 0
-
-# fig, ax = plt.subplots(nrows=2)
-# # ax.plot(data.index, data.wma9, label='wma9')
-# # ax.plot(data.index, data.wma18, label='wma18')
-# # ax.plot(data.index, data.wma100, label='wma100')
-# ax[0].set_title(symbol)
-# ax[0].plot(data.index, data.RSI, label='rsi')
-# ax[1].plot(data.index, data.Close,
-#            label='close price'+symbol)
-# ax[1].plot(data.index, data.wma18,
-#            label='wma18'+symbol)
-# ax[1].plot(data.index, data.wma100,
-#            label='wma100'+symbol)
-# for idx, row in data.iterrows():
-#     rango = data.Close.max()-data.Close.min()
-#     h = (row.Close-data.Close.min())/rango
-
-#     if row.signal == -1.00:
-#         ax[1].axvline(x=idx, ymin=0, ymax=h, c='red', ls='--')
-#     if row.signal == 1.00:
-#         ax[1].axvline(x=idx, ymin=0, ymax=h, c='green', ls='solid')
