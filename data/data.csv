@@ -1,0 +1,26 @@
+#api_key = 'zEWAdS749O3UoQCoo2EukdDSRuzwAMqbakQv7vHWh7ejoTswPF0hk1O1DaoRsaOk'
+#api_secret = 'xicyx7XFyc2RuaVppxFBquqY0nT6UbZykIJik9LRZNvYsCSl8GSokud0BMx2Fb2F'
+#client = Client(api_key, api_secret)
+alert_list = []
+# coin_list = ['DOGEUSDT', 'BTCUSDT',   'ETHUSDT',    'BNBUSDT',     'BCCUSDT',     'NEOUSDT',
+#              'LTCUSDT',    'ADAUSDT',     'XRPUSDT',     'EOSUSDT',
+#              'TUSDUSDT',  'IOTAUSDT',   'XLMUSDT',     'ONTUSDT',     'TRXUSDT',
+#              'ETCUSDT',   'ICXUSDT',      'NULSUSDT',    'VETUSDT',
+#              'PAXUSDT',   'BCHABCUSDT', 'BCHSVUSDT',   'USDCUSDT',    'LINKUSDT',
+#              'WAVESUSDT', 'BTTUSDT',     'ONGUSDT',     'HOTUSDT',
+#              'ZILUSDT',   'ZRXUSDT',    'FETUSDT',     'BATUSDT',     'XMRUSDT',
+#              'ZECUSDT',   'IOSTUSDT',   'CELRUSDT',    'DASHUSDT',    'NANOUSDT',
+#              'OMGUSDT',   'THETAUSDT',  'ENJUSDT',     'MITHUSDT',    'MATICUSDT',
+#              'ATOMUSDT',  'TFUELUSDT',  'ONEUSDT',     'FTMUSDT',     'ALGOUSDT',
+#              'GTOUSDT',    'ERDUSDT',     'DOGEUSDT',    'DUSKUSDT',
+#              'ANKRUSDT',  'WINUSDT',    'COSUSDT',     'NPXSUSDT',    'COCOSUSDT',
+#              'MTLUSDT',   'TOMOUSDT',   'PERLUSDT',    'DENTUSDT',    'MFTUSDT',
+#              'KEYUSDT',   'STORMUSDT',  'DOCKUSDT',    'WANUSDT',     'FUNUSDT',
+#              'CVCUSDT',   'CHZUSDT',    'BANDUSDT',    'BUSDUSDT',    'BEAMUSDT',
+#              'XTZUSDT',   'RENUSDT',    'RVNUSDT',     'HCUSDT',      'HBARUSDT',
+#              'NKNUSDT',   'STXUSDT',    'KAVAUSDT',    'ARPAUSDT',    'IOTXUSDT',
+#              'RLCUSDT',   'MCOUSDT',    'CTXCUSDT',    'BCHUSDT',     'TROYUSDT',
+#              'VITEUSDT',  'FTTUSDT',    'EURUSDT',     'OGNUSDT',     'DREPUSDT',
+#              'BULLUSDT',  'BEARUSDT',   'ETHBULLUSDT', 'ETHBEARUSDT', 'TCTUSDT']
+
+

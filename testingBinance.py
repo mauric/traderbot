@@ -4,32 +4,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import sendMessages as sm
+import time
 
-#api_key = 'zEWAdS749O3UoQCoo2EukdDSRuzwAMqbakQv7vHWh7ejoTswPF0hk1O1DaoRsaOk'
-#api_secret = 'xicyx7XFyc2RuaVppxFBquqY0nT6UbZykIJik9LRZNvYsCSl8GSokud0BMx2Fb2F'
-#client = Client(api_key, api_secret)
-alert_list = []
-# coin_list = ['DOGEUSDT', 'BTCUSDT',   'ETHUSDT',    'BNBUSDT',     'BCCUSDT',     'NEOUSDT',
-#              'LTCUSDT',    'ADAUSDT',     'XRPUSDT',     'EOSUSDT',
-#              'TUSDUSDT',  'IOTAUSDT',   'XLMUSDT',     'ONTUSDT',     'TRXUSDT',
-#              'ETCUSDT',   'ICXUSDT',      'NULSUSDT',    'VETUSDT',
-#              'PAXUSDT',   'BCHABCUSDT', 'BCHSVUSDT',   'USDCUSDT',    'LINKUSDT',
-#              'WAVESUSDT', 'BTTUSDT',     'ONGUSDT',     'HOTUSDT',
-#              'ZILUSDT',   'ZRXUSDT',    'FETUSDT',     'BATUSDT',     'XMRUSDT',
-#              'ZECUSDT',   'IOSTUSDT',   'CELRUSDT',    'DASHUSDT',    'NANOUSDT',
-#              'OMGUSDT',   'THETAUSDT',  'ENJUSDT',     'MITHUSDT',    'MATICUSDT',
-#              'ATOMUSDT',  'TFUELUSDT',  'ONEUSDT',     'FTMUSDT',     'ALGOUSDT',
-#              'GTOUSDT',    'ERDUSDT',     'DOGEUSDT',    'DUSKUSDT',
-#              'ANKRUSDT',  'WINUSDT',    'COSUSDT',     'NPXSUSDT',    'COCOSUSDT',
-#              'MTLUSDT',   'TOMOUSDT',   'PERLUSDT',    'DENTUSDT',    'MFTUSDT',
-#              'KEYUSDT',   'STORMUSDT',  'DOCKUSDT',    'WANUSDT',     'FUNUSDT',
-#              'CVCUSDT',   'CHZUSDT',    'BANDUSDT',    'BUSDUSDT',    'BEAMUSDT',
-#              'XTZUSDT',   'RENUSDT',    'RVNUSDT',     'HCUSDT',      'HBARUSDT',
-#              'NKNUSDT',   'STXUSDT',    'KAVAUSDT',    'ARPAUSDT',    'IOTXUSDT',
-#              'RLCUSDT',   'MCOUSDT',    'CTXCUSDT',    'BCHUSDT',     'TROYUSDT',
-#              'VITEUSDT',  'FTTUSDT',    'EURUSDT',     'OGNUSDT',     'DREPUSDT',
-#              'BULLUSDT',  'BEARUSDT',   'ETHBULLUSDT', 'ETHBEARUSDT', 'TCTUSDT']
-
+alert_list = [
 futures_coin_list = ['BTCUSDT', 'ETHUSDT', 'BCHUSDT', 'XRPUSDT', 'EOSUSDT', 'LTCUSDT', 'TRXUSDT',
                      'ETCUSDT', 'LINKUSDT', 'XLMUSDT', 'ADAUSDT', 'XMRUSDT', 'DASHUSDT', 'ZECUSDT',
                      'XTZUSDT', 'BNBUSDT', 'ATOMUSDT', 'ONTUSDT', 'IOTAUSDT', 'BATUSDT', 'VETUSDT',
@@ -59,7 +36,6 @@ def getInfo():
     return sym
 
 
-# getInfo().info()
 
 
 def getRSI(df, ruedas=14):
@@ -161,18 +137,28 @@ def get_signal(symbol='BTCUSDT', interval='15m', startTime=None, endTime=None, l
 
     return data
 
+# MAIN MODULE 
+#
+#
+#
+if __name__ == '__main__':
+    while True:
+        alert_list = []
+        i = 0
+        for coin in futures_coin_list:
+            i = i+1
+            get_signal(symbol=coin)
+            if(len(alert_list)) > 10:
+                sm.telegram_bot_sendtext(str(alert_list))
+                alert_list = []
+            if(i >= max_stock_number):
+                sm.telegram_bot_sendtext(str(alert_list))
+                break
 
-i = 0
-for coin in futures_coin_list:
-    i = i+1
-    get_signal(symbol=coin)
-    if(i > max_stock_number):
-        break
+    print("list:"+str(alert_list))
+    time.sleep(300)
 
-# print(getTickerPrice())
 
-print(alert_list)
-pd.set_option("display.max_rows", None, "display.max_columns", None)
 
-sm.telegram_bot_sendtext(str(alert_list))
-print(getTickerPrice())
+
+
